@@ -32,7 +32,5 @@
       emailInput.placeholder = 'Почта';
     }
   });
-
-  // console.log(itemTitle);
 })()
 
