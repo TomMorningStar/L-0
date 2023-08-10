@@ -2,25 +2,25 @@
 const paymentData = [
   {
     id: 1,
-    icon: '../icons/Frame277132129.svg',
+    icon: './icons/Frame277132129.svg',
     title: '1234 56•• •••• 1234',
     selected: true,
   },
   {
     id: 2,
-    icon: '../icons/Frame277132129d.svg',
+    icon: './icons/Frame277132129d.svg',
     title: '8954 56•• •••• 1234',
     selected: false,
   },
   {
     id: 3,
-    icon: '../icons/Frame277132129da.svg',
+    icon: './icons/Frame277132129da.svg',
     title: '1332 56•• •••• 1234',
     selected: false,
   },
   {
     id: 4,
-    icon: '../icons/Frame2771321292.svg',
+    icon: './icons/Frame2771321292.svg',
     title: '1111 56•• •••• 1234',
     selected: false,
   },
