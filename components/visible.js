@@ -9,8 +9,6 @@ const deliveryContainer = document.querySelector('#delivery-container');
 const itemTitle = document.querySelectorAll('.item-title');
 const emailInput = document.querySelector('input[type=email]');
 
-
-
 const hiddenCartDetails = document.querySelector('#hidden-cart-details');
 const menuActions = document.querySelector('#menu-actions');
 
