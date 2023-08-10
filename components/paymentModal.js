@@ -93,7 +93,7 @@ const rootRender = () => {
       paymentData.forEach((item) => {
         if (item.selected) {
           block.innerHTML = `
-          <div class="mr-8">
+          <div class="mr-8 bank-icon">
             <img src="${item.icon}" alt="payment-icon">
           </div>
           <div class="mr-12">
