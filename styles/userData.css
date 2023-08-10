@@ -28,6 +28,7 @@
 .input-fields {
   height: 27px;
   font-size: 16px;
+  position: relative;
 }
 
 .input-fields p {
@@ -52,7 +53,7 @@
 }
 
 .input-field-container.second {
-  margin-top: 16px;
+  margin-top: 22px;
 }
 
 .input-field-container.first div {
@@ -63,26 +64,26 @@
   width: 31%;
 }
 
-.label-postiton.phone {
-  margin-bottom: 6px;
-}
 
-.label-postiton.docs {
+.label-position.docs {
   font-size: 12px;
-  margin-top: 3px;
 }
 
 .payment-recipient-title {
   margin-bottom: 19px;
 }
 
-.invalid {
-  border-bottom: 1px solid #FF0000 !important;
+#name-field-error,
+#surname-field-error,
+#phone-field-error,
+#email-field-error,
+#inn-field-error {
+  display: none;
+  color: #F55123;
 }
 
-.invalid::placeholder {
-  color: #FF0000;
-  font-size: 12px !important;
+.invalid {
+  color: #F55123;
 }
 
 @media screen and (max-width: 800px) {
@@ -106,9 +107,13 @@
     height: auto;
   }
 
+  #inn-field-error {
+    bottom: -20px;
+  }
+
   .input-field-container.first,
   .input-field-container.second,
-  .label-postiton.docs {
+  .label-position.docs {
     margin: 0;
   }
 
@@ -134,11 +139,17 @@
     align-items: center;
   }
 
-  .label-postiton.phone {
+  .label-position .phone {
     top: -4px;
+    position: absolute;
   }
 
-  .label-postiton.docs {
+
+  .label-position.phone-label {
+    margin-bottom: 49px;
+  }
+
+  .label-position.docs {
     bottom: -4px;
   }
 
@@ -149,4 +160,6 @@
   .user-data .input-field-container {
     flex-wrap: wrap;
   }
+
+
 }

@@ -6,6 +6,8 @@
 @import './styles/wayToGet.css';
 @import './styles/userData.css';
 @import './styles/footer.css';
+@import './styles/hover-modal.css';
+@import './styles/modal.css';
 
 * {
   margin: 0;

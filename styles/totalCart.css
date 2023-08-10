@@ -32,12 +32,12 @@ h2 {
   font-size: 20px;
 }
 
-.delivery-details .adress {
+.delivery-details .address {
   line-height: 19px;
   margin: 4px 0 10px 0;
 }
 
-.delivery-details .adress span {
+.delivery-details .address span {
   margin-top: 3px;
   color: #CB11AB;
   border-bottom: 1px dashed #CB11AB;
@@ -49,6 +49,15 @@ h2 {
   border-radius: 8px;
   margin-top: 10px;
   margin-bottom: 22px;
+}
+
+.bank-icon {
+  margin-top: 2px;
+}
+
+.return-shipping-inCart {
+  height: 52px;
+  margin-top: 12px;
 }
 
 .return-shipping .price-shipping {
@@ -83,6 +92,10 @@ h2 {
 
 .inline {
   border-bottom: 1px solid #dadada;
+}
+
+.free-button-hover {
+  position: relative;
 }
 
 @media screen and (max-width: 1024px) {

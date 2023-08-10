@@ -6,12 +6,13 @@ export let items = [
     price: 1051,
     priceDiscount: 522,
     inCart: 1,
-    img: './img/img1.png',
+    img: './img/img1.svg',
     size: 56,
     left: 2, // осталось в магазине
     color: 'белый',
     company: 'OOO Вайлдберриз',
-    inStorage: 2, // отправляется 6-7 февраля 
+    companyHover: 'OOO «ВАЙЛЛДБЕРРИЗ»',
+    inStorage: 2, // отправляется 5-6 февраля, остальное 7-8 февраля 
     like: false,
   },
   {
@@ -21,12 +22,13 @@ export let items = [
     price: 11500.235,
     priceDiscount: 10500.235,
     inCart: 200,
-    img: './img/img2.png',
+    img: './img/img2.svg',
     size: null,
     left: 5, // осталось в магазине
     color: 'прозрачный',
     company: 'OOO Мегапрофстиль',
-    inStorage: 184, // отправляется 6-7 февраля 
+    companyHover: 'OOO «МЕГАПРОФСТИЛЬ»',
+    inStorage: 184, // отправляется 5-6 февраля, остальное 7-8 февраля 
     like: false,
   },
   {
@@ -36,12 +38,15 @@ export let items = [
     price: 475,
     priceDiscount: 247,
     inCart: 2,
-    img: './img/img3.png',
+    img: './img/img3.svg',
     size: null,
     left: 2, // осталось в магазине
     color: null,
     company: 'OOO Вайлдберриз',
-    inStorage: 2, // отправляется 6-7 февраля 
+    companyHover: 'OOO «ВАЙЛЛДБЕРРИЗ»',
+    inStorage: 2, // отправляется 5-6 февраля, остальное 7-8 февраля 
     like: false,
   }
 ]
+
+export const totalSum = () => new Intl.NumberFormat('ru-RU').format(String(Math.ceil(items.reduce((acc, item) => acc + item.priceDiscount * item.inCart, 0)))).replace(',', '.');

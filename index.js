@@ -1,9 +1,11 @@
 import { rootRender } from './components/cartItem.js'
 import { items } from './data.js'
-import { renderDeliveryHtml } from './components/delivery.js'
-
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderDeliveryHtml(items);
+  document.querySelector('#delivery-modal').style.display = 'none';
+  document.querySelector('#payment-modal-display').style.display = 'none';
+
   rootRender(items);
+
+
 })

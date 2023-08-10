@@ -50,23 +50,23 @@ export const renderDeliveryHtml = (items) => {
     return html;
   }
 
-
   let html = items.length ? `
     <div class="mb-16 way-to-get-container">
       <div class="mb-20 way-to-get-title d-flex justify-content-between align-center">
         <h2>Способ доставки</h2>
         <div class="change-get-items-button">
-          <button class=" cursor-pointer">
+          <button id="delivery-modal-button" class="cursor-pointer">
             Изменить
           </button>
         </div>
+
       </div>
 
       <div class="d-flex" >
         <div>
           <div class="d-flex point-of-issue delivery-method-container">
             <div class="delivery-method-details">Пункт выдачи</div>
-            <div>
+            <div id="total-address">
               Бишкек, улица Ахматбека Суюмбаева, 12/1 <br>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -106,8 +106,11 @@ export const renderDeliveryHtml = (items) => {
                 </defs>
               </svg>
             </div>
-            <div>
-              Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+            <div style="position: relative;">
+              Обратная доставка товаров на склад при отказе — <span class="cursor-pointer free-button-hover">бесплатно</span>
+              <div class="hover-modal hover-modal-second">
+                Если товары вам не подойдут, мы вернем <br>их обратно на склад — это бесплатно
+              </div>
             </div>
           </div>
         </div>

@@ -10,6 +10,8 @@
   <script defer src="./components/visible.js" type="module"></script>
   <script defer src="./components/cartItem.js" type="module"></script>
   <script defer src="./components/userData.js" type="module"></script>
+  <script defer src="./components/addressModal.js" type="module"></script>
+  <script defer src="./components/paymentModal.js" type="module"></script>
   <title>L-0</title>
 </head>
 
@@ -103,7 +105,9 @@
           <div class="section-sub-container mobile-padding cart-item-mobile-section">
             <h1 class="title">Корзина</h1>
             <div class="cart-menu d-flex justify-content-between align-center">
-              <div class="menu-action d-flex justify-content-between">
+              <p id="hidden-cart-details">
+              </p>
+              <div id="menu-actions" class="menu-action d-flex justify-content-between">
                 <input class="cursor-pointer checkbox check-all" type="checkbox">
                 <p>Выбрать все</p>
               </div>
@@ -115,9 +119,11 @@
                 </svg>
               </div>
             </div>
-
+            <div class="section-line first-line"></div>
             <div class="cart-items-section">
+
               <div id="cart-item-container" style="min-height: 0;">
+
               </div>
             </div>
           </div>
@@ -133,13 +139,13 @@
                 </svg>
               </div>
             </div>
-            <div class="section-line second-line"></div>
             <div class="cart-items-section missings">
               <div style="min-height: 0;">
+                <div class="section-line second-line"></div>
                 <div class="item missing-mobile-section d-flex justify-content-between">
                   <div class="d-flex mobile-item">
                     <div class="d-flex image-container align-center">
-                      <img width="72" height="96" src="./img/img4.png" class="ml-16" alt="cart-item">
+                      <img width="72" height="96" src="./img/img4.svg" class="ml-16" alt="cart-item">
                     </div>
                     <div class="item__info missing-item-info">
                       <div class="item-title missings-title">Футболка UZcotton мужская</div>
@@ -184,7 +190,7 @@
                   <div class="d-flex mobile-item">
                     <div class="d-flex image-container align-center">
 
-                      <img width="72" height="96" src="./img/img5.png" class="ml-16" alt="cart-item">
+                      <img width="72" height="96" src="./img/img5.svg" class="ml-16" alt="cart-item">
                     </div>
                     <div class="item__info missing-item-info">
                       <div class="item-title missings-title">
@@ -232,7 +238,7 @@
                       <div class="mobile-size">
                         56/54/52...
                       </div>
-                      <img width="72" height="96" src="./img/img6.png" class="ml-16" alt="cart-item">
+                      <img width="72" height="96" src="./img/img6.svg" class="ml-16" alt="cart-item">
                     </div>
                     <div class="item__info missing-item-info">
                       <div class="item-title missings-title">
@@ -281,37 +287,15 @@
               <div class="mb-20 payment-recipient-title d-flex justify-content-between align-center">
                 <h2>Способ оплаты</h2>
                 <div class="change-get-items-button">
-                  <button class=" cursor-pointer">
+                  <button class="cursor-pointer open-payment-modal-button">
                     Изменить
                   </button>
                 </div>
               </div>
-              <div class="d-flex">
+
+              <div class="d-flex payment-info-block">
                 <div class="mr-8">
-                  <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
-                    <rect width="32" height="24" rx="4" fill="#F6F6FA" />
-                    <path
-                      d="M17.6813 8.84377L15.8645 12.7583H15.6806V8.00031H13.0852V16.0024H15.2372C15.8212 16.0024 16.3403 15.6672 16.589 15.1481L18.4166 11.2444H18.6005V16.0024H21.1959V8.00031H19.0114C18.4491 8.00031 17.9192 8.33553 17.6813 8.84377Z"
-                      fill="#319B42" />
-                    <path
-                      d="M7.97243 9.04923L6.90182 12.7583H6.71798L5.63656 9.04923C5.45271 8.42204 4.87956 8.00031 4.2307 8.00031H1.66772V16.0024H4.26315V11.2444H4.44699L5.93935 16.0024H7.66963L9.162 11.2444H9.34584V16.0024H11.9413V8.00031H9.37829C8.72943 8.00031 8.14546 8.42204 7.97243 9.04923Z"
-                      fill="#319B42" />
-                    <path
-                      d="M22.3244 11.5674V16.0024H24.9207V13.4063H27.7116C28.9232 13.4063 29.9509 12.6383 30.3295 11.5674H22.3244Z"
-                      fill="#319B42" />
-                    <path
-                      d="M27.6358 8.00031H21.8591C22.2161 9.90411 23.882 11.2454 25.8833 11.2454H30.3727C30.4051 11.0724 30.4267 10.8776 30.4267 10.6829C30.4267 9.1361 29.1827 8.00031 27.6358 8.00031Z"
-                      fill="url(#paint0_linear_7_2399)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_7_2399" x1="21.8591" y1="9.62287" x2="30.4267" y2="9.62287"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#00A3E1" />
-                        <stop offset="0.3042" stop-color="#009ADD" />
-                        <stop offset="0.7987" stop-color="#0082D4" />
-                        <stop offset="1" stop-color="#0076CF" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+                  <img src="./icons/Frame 277132129.svg" alt="">
                 </div>
                 <div class="mr-12">
                   1234 56•• •••• 1234
@@ -334,35 +318,40 @@
                 <div class="input-field-container first d-flex justify-content-between">
                   <div class="input-fields">
                     <input type="text" id="name-field" placeholder="Имя">
+                    <p class="label-position docs" id="name-field-error">
+                    </p>
                   </div>
                   <div class="input-fields">
                     <input type="text" id="surname-field" placeholder="Фамилия">
+                    <p class="label-position docs" id="surname-field-error">
+                    </p>
                   </div>
                 </div>
 
                 <div class="d-flex input-field-container second justify-content-between">
                   <div class="input-fields">
-                    <p class="color-gray label-postiton phone">
+                    <p class="label-position phone">
                     </p>
                     <input type="email" id="email-field" placeholder="Почта">
-                    <p class="color-gray label-postiton docs">
+                    <p class="label-position docs" id="email-field-error">
                     </p>
                   </div>
                   <div class="input-fields">
-                    <p class="color-gray label-postiton phone">
+                    <p class="label-position phone phone-label">
                       Телефон
                     </p>
                     <input type="text" id="phone-field" placeholder="+7 (988) 123-45-67">
-                    <p class="color-gray label-postiton docs">
+                    <p class="label-position docs" id="phone-field-error">
                     </p>
                   </div>
                   <div class="input-fields">
-                    <p class="color-gray label-postiton phone">
+                    <p class="label-position docs">
                     </p>
                     <input type="text" id="inn-field" placeholder="ИНН">
-                    <p class="label-postiton docs">
+                    <p class="label-position docs">
                       Для таможенного оформления
                     </p>
+                    <p class="label-position docs inn-error" id="inn-field-error"></p>
                   </div>
                 </div>
               </div>
@@ -394,7 +383,7 @@
               <div class="delivery-details-title">
                 Доставка в пункт выдачи
               </div>
-              <div class="cursor-pointer">
+              <div id="delivery-modal-button" class="cursor-pointer">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M13.1585 3.05991L16.9401 6.84154L6.72705 17.0546L2.73544 17.8529C2.38557 17.9229 2.07711 17.6144 2.14709 17.2646L2.94541 13.273L13.1585 3.05991ZM4.17707 13.9321L13.1585 4.95072L15.0493 6.84154L6.06789 15.8229L3.70436 16.2956L4.17707 13.9321Z"
@@ -405,12 +394,12 @@
                 </svg>
               </div>
             </div>
-            <div class="adress cart-mobile-version fz-13">
+            <div class="address cart-mobile-version fz-13" id="total-address">
               Бишкек, улица Ахматбека Суюмбаева, 12/1 <br>
               <span>5–8 фев</span>
             </div>
             <div
-              class="return-shipping mobile-cart-wrapper mobile-cart-wrapper-margins fz-13 mb-24 d-flex align-center">
+              class="return-shipping mobile-cart-wrapper return-shipping-inCart mobile-cart-wrapper-margins fz-13 mb-24 d-flex align-center">
               <div class="price-shipping">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -433,8 +422,14 @@
                   </defs>
                 </svg>
               </div>
-              <div>
-                Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+              <div style="position: relative;">
+                Обратная доставка товаров на склад при отказе —
+                <span class="cursor-pointer free-button-hover">
+                  бесплатно
+                </span>
+                <div class="hover-modal">
+                  Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
+                </div>
               </div>
             </div>
             <div class="payment-details">
@@ -442,8 +437,9 @@
                 <div class="delivery-details-title">
                   Оплата картой
                 </div>
-                <div class="cursor-pointer">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <div>
+                  <svg class="cursor-pointer open-payment-modal-button" width="20" height="20" viewBox="0 0 20 20"
+                    fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M13.1585 3.05991L16.9401 6.84154L6.72705 17.0546L2.73544 17.8529C2.38557 17.9229 2.07711 17.6144 2.14709 17.2646L2.94541 13.273L13.1585 3.05991ZM4.17707 13.9321L13.1585 4.95072L15.0493 6.84154L6.06789 15.8229L3.70436 16.2956L4.17707 13.9321Z"
                       fill="#CB11AB" />
@@ -453,32 +449,9 @@
                   </svg>
                 </div>
               </div>
-              <div class="fz-13 cart-mobile-version d-flex">
-                <div class="mr-8">
-                  <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
-                    <rect width="32" height="24" rx="4" fill="#F6F6FA" />
-                    <path
-                      d="M17.6813 8.84377L15.8645 12.7583H15.6806V8.00031H13.0852V16.0024H15.2372C15.8212 16.0024 16.3403 15.6672 16.589 15.1481L18.4166 11.2444H18.6005V16.0024H21.1959V8.00031H19.0114C18.4491 8.00031 17.9192 8.33553 17.6813 8.84377Z"
-                      fill="#319B42" />
-                    <path
-                      d="M7.97243 9.04923L6.90182 12.7583H6.71798L5.63656 9.04923C5.45271 8.42204 4.87956 8.00031 4.2307 8.00031H1.66772V16.0024H4.26315V11.2444H4.44699L5.93935 16.0024H7.66963L9.162 11.2444H9.34584V16.0024H11.9413V8.00031H9.37829C8.72943 8.00031 8.14546 8.42204 7.97243 9.04923Z"
-                      fill="#319B42" />
-                    <path
-                      d="M22.3244 11.5674V16.0024H24.9207V13.4063H27.7116C28.9232 13.4063 29.9509 12.6383 30.3295 11.5674H22.3244Z"
-                      fill="#319B42" />
-                    <path
-                      d="M27.6358 8.00031H21.8591C22.2161 9.90411 23.882 11.2454 25.8833 11.2454H30.3727C30.4051 11.0724 30.4267 10.8776 30.4267 10.6829C30.4267 9.1361 29.1827 8.00031 27.6358 8.00031Z"
-                      fill="url(#paint0_linear_7_2399)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_7_2399" x1="21.8591" y1="9.62287" x2="30.4267" y2="9.62287"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#00A3E1" />
-                        <stop offset="0.3042" stop-color="#009ADD" />
-                        <stop offset="0.7987" stop-color="#0082D4" />
-                        <stop offset="1" stop-color="#0076CF" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+              <div class="fz-13 payment-info-block cart-mobile-version d-flex">
+                <div class="mr-8 bank-icon">
+                  <img src="./icons/Frame 277132129.svg" alt="">
                 </div>
                 <div class="lh-28">
                   1234 12•• •••• 1234
@@ -486,7 +459,7 @@
               </div>
               <div class="return-shipping mobile-cart-wrapper mobile-cart-wrapper-margins fz-13">
                 <div class="d-flex align-center">
-                  <input class="mr-8" type="checkbox">
+                  <input class="mr-8" id="payment-checkbox" type="checkbox">
                   <div>Списать оплату сразу</div>
                 </div>
                 <div class="mt-8">
@@ -517,6 +490,11 @@
       </div>
     </section>
   </main>
+
+  <div id="address-modal"></div>
+  <div id="payment-modal"></div>
+
+
   <footer>
     <div class="footer-title">
       © 2022 ООО «Товары и точка»
