@@ -93,10 +93,10 @@ const rootRender = () => {
       paymentData.forEach((item) => {
         if (item.selected) {
           block.innerHTML = `
-          <div class="mr-8 bank-icon">
+          <div class="mr-8 ${index === 1 && 'bank-icon'}">
             <img src="${item.icon}" alt="payment-icon">
           </div>
-          <div class="mr-12">
+          <div class="${index === 1 ? 'lh-28' : 'mr-12'}  ">
             ${item.title}
           </div>
           ${index === 0 ? '<div>01/30</div>' : ''} `
