@@ -34,7 +34,7 @@ toggleVisible.forEach((item, index) => {
         hiddenCartDetails.style.display = 'block';
         menuActions.style.display = 'none';
         hiddenCartDetails.textContent = `${items.reduce((acc, el) => {
-          return acc + el.inCart
+          return el.selected ? acc + el.inCart : acc;
         }, 0)} товаров · ${totalSum()} сом `;
       }
     } else {
