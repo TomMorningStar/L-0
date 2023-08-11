@@ -4,7 +4,7 @@
 import { items } from '../data.js';
 import { renderDeliveryHtml } from './delivery.js';
 
-renderDeliveryHtml(items);
+renderDeliveryHtml(items.filter(item => item.selected));
 
 const container = document.querySelector('#address-modal');
 const totalAddress = document.querySelectorAll('#total-address');

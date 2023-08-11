@@ -12,6 +12,7 @@ let buttonDecrement = null;
 let buttonIncrement = null;
 let likeButton = null;
 let deleteButton = null;
+let checkbox = null;
 
 const renderHtml = (cartItems) => {
   let html = ''
@@ -22,7 +23,7 @@ const renderHtml = (cartItems) => {
         <div class="item d-flex justify-content-between">
           <div class="d-flex mobile-item">
             <div class="d-flex image-container align-center">
-              <input ${item.selected && "checked"}  class="cursor-pointer checkbox" type="checkbox">
+              <input data-id="${item.id}" ${item.selected && "checked"}  class="cursor-pointer checkbox" id="checkbox" type="checkbox">
               <img width="72" height="96" src="${item.img}" class="ml-16" alt="cart-item">  
               ${item.size ? `<div class="mobile-size">${item.size}</div>` : ''}
             </div>
@@ -131,6 +132,13 @@ export const rootRender = (items) => {
   document.querySelector('.cart-item-amount').textContent = items.length ? items.length :
     document.querySelector('.cart-item-amount').style.display = 'none';
 
+  checkbox = document.querySelectorAll('#checkbox');
+
+  checkbox.forEach(item => {
+    item.addEventListener('click', (e) => checkboxChange(e));
+  });
+
+
   buttonDecrement.forEach(item => {
     item.addEventListener('click', (e) => decrement(e));
   });
@@ -145,12 +153,18 @@ export const rootRender = (items) => {
   });
 }
 
-const cartDetails = () => {
-  totalSum.textContent = sum() + ' сом';
-  totalAmount.textContent = items.reduce((acc, item) => acc + item.inCart, 0) + ' товара';
-  totalDeliverySum.textContent = new Intl.NumberFormat('ru-RU').format(String(Math.ceil(items.reduce((acc, item) => acc + item.price * item.inCart, 0)))).replace(',', '.') + ' сом';
-  totalDelivery.textContent = '−' + new Intl.NumberFormat('ru-RU').format(Math.ceil(items.reduce((acc, item) => acc + item.price * item.inCart, 0) - items.reduce((acc, item) => acc + item.priceDiscount * item.inCart, 0))).replace(',', '.') + ' сом';
+const checkboxChange = (e) => {
+  rootRender(items.map(item => {
+    if (item.id == e.currentTarget.dataset.id) {
+      item.selected = !item.selected;
+    }
+    return item;
+  }));
+
+  values();
+  renderDeliveryHtml(items.filter(item => item.selected));
 }
+
 
 const decrement = (e) => {
   rootRender(items.map(item => {
@@ -161,14 +175,8 @@ const decrement = (e) => {
     return item;
   }))
 
-  if (paymentCheckbox.checked) {
-    submitButton.textContent = 'Оплатить ' + sum() + ' сом';
-  } else {
-    submitButton.textContent = 'Заказать';
-  }
-
-  cartDetails();
-  renderDeliveryHtml(items);
+  values();
+  renderDeliveryHtml(items.filter(item => item.selected));
 }
 
 
@@ -181,14 +189,8 @@ const increment = (e) => {
     return item;
   }))
 
-  if (paymentCheckbox.checked) {
-    submitButton.textContent = 'Оплатить ' + sum() + ' сом';
-  } else {
-    submitButton.textContent = 'Заказать';
-  }
-
-  cartDetails();
-  renderDeliveryHtml(items);
+  values();
+  renderDeliveryHtml(items.filter(item => item.selected));
 }
 
 const like = (e) => {
@@ -205,15 +207,9 @@ const deleteItem = (e) => {
     if (el.id == e.currentTarget.dataset.id) items.splice(i, 1)
   })
 
-  if (paymentCheckbox.checked) {
-    submitButton.textContent = 'Оплатить ' + sum() + ' сом';
-  } else {
-    submitButton.textContent = 'Заказать';
-  }
-
-  cartDetails();
+  values();
   rootRender(items);
-  renderDeliveryHtml(items);
+  renderDeliveryHtml(items.filter(item => item.selected));
 }
 
 checkAll.addEventListener('click', () => {
@@ -221,6 +217,9 @@ checkAll.addEventListener('click', () => {
     item.selected = checkAll.checked;
     return item;
   }));
+
+  values();
+  renderDeliveryHtml(items.filter(item => item.selected));
 });
 
 window.addEventListener('resize', (e) => {
@@ -237,10 +236,20 @@ const paymentCheckbox = document.querySelector('#payment-checkbox');
 const submitButton = document.querySelector('#submit');
 
 paymentCheckbox.addEventListener('change', () => {
+  values()
+})
+
+const values = () => {
   if (paymentCheckbox.checked) {
     submitButton.textContent = 'Оплатить ' + sum() + ' сом';
   } else {
     submitButton.textContent = 'Заказать';
   }
-})
 
+  totalSum.innerHTML = sum() + '<span> сом</span>';
+  totalAmount.textContent = items.reduce((acc, item) => item.selected ? acc + item.inCart : acc, 0) + ' товара';
+  totalDeliverySum.textContent = new Intl.NumberFormat('ru-RU').format(String(Math.ceil(items.reduce((acc, item) => item.selected ? acc + item.price * item.inCart : acc, 0)))).replace(',', '.') + ' сом';
+  totalDelivery.textContent = '−' + new Intl.NumberFormat('ru-RU').format(Math.ceil(items.reduce((acc, item) => item.selected ? acc + item.price * item.inCart : acc, 0) - items.reduce((acc, item) => item.selected ? acc + item.priceDiscount * item.inCart : acc, 0))).replace(',', '.') + ' сом';
+}
+
+values()

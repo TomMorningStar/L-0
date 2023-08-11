@@ -49,4 +49,4 @@ export let items = [
   }
 ]
 
-export const totalSum = () => new Intl.NumberFormat('ru-RU').format(String(Math.ceil(items.reduce((acc, item) => acc + item.priceDiscount * item.inCart, 0)))).replace(',', '.');
+export const totalSum = () => new Intl.NumberFormat('ru-RU').format(String(Math.ceil(items.reduce((acc, item) => item.selected ? acc + item.priceDiscount * item.inCart : acc, 0)))).replace(',', '.');
