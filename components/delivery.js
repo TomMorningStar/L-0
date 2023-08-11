@@ -3,6 +3,7 @@ const container = document.querySelector('#delivery-container');
 
 export const renderDeliveryHtml = (items) => {
   container.innerHTML = '';
+
   const newItems = items.filter((item) => item.inCart > item.inStorage);
 
   const renderDeliveryItems = (items) => {
