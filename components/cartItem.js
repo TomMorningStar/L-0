@@ -129,7 +129,7 @@ export const rootRender = (items) => {
   buttonIncrement = document.querySelectorAll('#buttonIncrement');
   likeButton = document.querySelectorAll('#like-icon');
   deleteButton = document.querySelectorAll('#delete-icon');
-  document.querySelector('.cart-item-amount').textContent = items.length ? items.length :
+  document.querySelector('.cart-item-amount').textContent = items.filter(item => item.selected).length ? items.filter(item => item.selected).length :
     document.querySelector('.cart-item-amount').style.display = 'none';
 
   checkbox = document.querySelectorAll('#checkbox');
